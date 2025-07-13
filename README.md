@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>온라인 재활 운동 강의</title>
+  <title> Breathe Well</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -96,7 +96,7 @@
   <section class="videos">
     <h2>대표 강의 미리보기</h2>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/watch?v=I1ICSr9GJPU&ab_channel=Resmed" frameborder="0" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
