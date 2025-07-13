@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title> Life Maxing </title>
+  <title>온라인 재활 운동 강의</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -44,14 +44,50 @@
     .product-images {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 2rem;
       padding: 1rem;
     }
 
-    .product-images img {
+    .product-item {
+      position: relative;
+      text-align: center;
+    }
+
+    .product-item img {
       width: 100%;
+      max-width: 1000px;
       border-radius: 10px;
       box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product-item img:hover {
+      transform: scale(1.02);
+    }
+
+    .tooltip {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(0,0,0,0.75);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 5px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 10;
+      font-size: 0.9rem;
+    }
+
+    .product-item:hover .tooltip {
+      opacity: 1;
+    }
+
+    .image-caption {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      font-size: 1rem;
     }
 
     .videos iframe {
@@ -99,8 +135,8 @@
 </head>
 <body>
   <header>
-    <h1>Live the Best Life </h1>
-    <p>Breathe Right, Live Right</p>
+    <h1>재활 · 운동 강의 센터</h1>
+    <p>건강을 되찾는 첫걸음, 집에서 시작하세요</p>
   </header>
 
   <section class="about">
@@ -120,8 +156,16 @@
       </p>
     </div>
     <div class="product-images">
-      <img src="https://via.placeholder.com/400x250?text=제품+사진+1" alt="제품 사진 1">
-      <img src="https://via.placeholder.com/400x250?text=제품+사진+2" alt="제품 사진 2">
+      <div class="product-item">
+        <div class="tooltip">이 밴드는 다리 근육 회복에 효과적입니다.</div>
+        <img src="https://picsum.photos/1000/600?random=1" alt="제품 사진 1">
+        <div class="image-caption">재활 밴드 키트</div>
+      </div>
+      <div class="product-item">
+        <div class="tooltip">팔과 어깨 재활에 적합한 튜빙 기구입니다.</div>
+        <img src="https://picsum.photos/1000/600?random=2" alt="제품 사진 2">
+        <div class="image-caption">상체 근력 튜브</div>
+      </div>
     </div>
   </section>
 
