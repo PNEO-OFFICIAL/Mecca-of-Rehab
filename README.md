@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title> Breathe Well</title>
+  <title> Life Maxing </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -26,14 +26,32 @@
 
     section {
       padding: 2rem 1rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    .about {
+    .about, .product {
       background: white;
       border-radius: 10px;
       margin-top: 1rem;
+    }
+
+    .product-description {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .product-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .product-images img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
 
     .videos iframe {
@@ -81,8 +99,8 @@
 </head>
 <body>
   <header>
-    <h1>재활 · 운동 강의 센터</h1>
-    <p>건강을 되찾는 첫걸음, 집에서 시작하세요</p>
+    <h1>Live the Best Life </h1>
+    <p>Breathe Right, Live Right</p>
   </header>
 
   <section class="about">
@@ -93,10 +111,24 @@
     </p>
   </section>
 
+  <section class="product">
+    <div class="product-description">
+      <h2>전문 재활 운동 키트</h2>
+      <p>
+        집에서도 효과적인 재활 운동을 할 수 있도록 설계된 키트입니다.<br>
+        다양한 근육군을 자극할 수 있으며, 영상 강의와 연동되어 활용됩니다.
+      </p>
+    </div>
+    <div class="product-images">
+      <img src="https://via.placeholder.com/400x250?text=제품+사진+1" alt="제품 사진 1">
+      <img src="https://via.placeholder.com/400x250?text=제품+사진+2" alt="제품 사진 2">
+    </div>
+  </section>
+
   <section class="videos">
     <h2>대표 강의 미리보기</h2>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/watch?v=I1ICSr9GJPU&ab_channel=Resmed" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
