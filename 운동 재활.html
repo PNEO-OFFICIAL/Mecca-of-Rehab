@@ -5,6 +5,7 @@
   <title>온라인 재활 운동 강의</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -22,6 +23,10 @@
 
     header h1 {
       margin-bottom: 0.5rem;
+    }
+
+    .lang-toggle {
+      margin-top: 1rem;
     }
 
     section {
@@ -51,6 +56,7 @@
     .product-item {
       position: relative;
       text-align: center;
+      cursor: pointer;
     }
 
     .product-item img {
@@ -88,6 +94,16 @@
       margin-top: 0.5rem;
       font-weight: bold;
       font-size: 1rem;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: #28a745;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
     }
 
     .videos iframe {
@@ -131,17 +147,58 @@
       font-size: 0.9rem;
       background: #eee;
     }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .lang-toggle button {
+      padding: 5px 15px;
+      margin: 5px;
+      border: none;
+      background: #fff;
+      color: #0077cc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .lang-toggle button:hover {
+      background: #dcefff;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>재활 · 운동 강의 센터</h1>
-    <p>건강을 되찾는 첫걸음, 집에서 시작하세요</p>
+    <h1 id="title">재활 · 운동 강의 센터</h1>
+    <p id="subtitle">건강을 되찾는 첫걸음, 집에서 시작하세요</p>
+    <div class="lang-toggle">
+      <button onclick="setLang('ko')">한국어</button>
+      <button onclick="setLang('en')">English</button>
+    </div>
   </header>
 
   <section class="about">
-    <h2>우리에 대해</h2>
-    <p>
+    <h2 id="about-title">우리에 대해</h2>
+    <p id="about-text">
       물리치료 전문가들이 직접 제작한 온라인 재활 프로그램입니다.<br>
       각 과정은 단계별로 구성되어 누구나 쉽게 따라할 수 있어요.
     </p>
@@ -149,28 +206,38 @@
 
   <section class="product">
     <div class="product-description">
-      <h2>전문 재활 운동 키트</h2>
-      <p>
+      <h2 id="product-title">전문 재활 운동 키트</h2>
+      <p id="product-text">
         집에서도 효과적인 재활 운동을 할 수 있도록 설계된 키트입니다.<br>
         다양한 근육군을 자극할 수 있으며, 영상 강의와 연동되어 활용됩니다.
       </p>
     </div>
     <div class="product-images">
       <div class="product-item">
-        <div class="tooltip">이 밴드는 다리 근육 회복에 효과적입니다.</div>
-        <img src="https://picsum.photos/1000/600?random=1" alt="제품 사진 1">
-        <div class="image-caption">재활 밴드 키트</div>
+        <div class="tooltip" id="tooltip1">이 밴드는 다리 근육 회복에 효과적입니다.</div>
+        <a href="#img1"><img src="https://picsum.photos/1000/600?random=1" alt="제품 사진 1"></a>
+        <div class="image-caption" id="caption1">재활 밴드 키트</div>
+        <a href="#" class="buy-btn">구매하기</a>
       </div>
       <div class="product-item">
-        <div class="tooltip">팔과 어깨 재활에 적합한 튜빙 기구입니다.</div>
-        <img src="https://picsum.photos/1000/600?random=2" alt="제품 사진 2">
-        <div class="image-caption">상체 근력 튜브</div>
+        <div class="tooltip" id="tooltip2">팔과 어깨 재활에 적합한 튜빙 기구입니다.</div>
+        <a href="#img2"><img src="https://picsum.photos/1000/600?random=2" alt="제품 사진 2"></a>
+        <div class="image-caption" id="caption2">상체 근력 튜브</div>
+        <a href="#" class="buy-btn">구매하기</a>
       </div>
     </div>
   </section>
 
+  <!-- Lightbox -->
+  <div id="img1" class="lightbox" onclick="location.href='#'">
+    <img src="https://picsum.photos/1000/600?random=1" alt="확대 이미지 1">
+  </div>
+  <div id="img2" class="lightbox" onclick="location.href='#'">
+    <img src="https://picsum.photos/1000/600?random=2" alt="확대 이미지 2">
+  </div>
+
   <section class="videos">
-    <h2>대표 강의 미리보기</h2>
+    <h2 id="video-title">대표 강의 미리보기</h2>
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
@@ -178,13 +245,68 @@
   </section>
 
   <section class="contact">
-    <h2>문의하기</h2>
-    <p>카카오톡: @rehabfit | 이메일: rehab@exercise.com</p>
-    <a href="mailto:rehab@exercise.com" class="btn">이메일 문의</a>
+    <h2 id="contact-title">문의하기</h2>
+    <p id="contact-text">카카오톡: @rehabfit | 이메일: rehab@exercise.com</p>
+    <a href="mailto:rehab@exercise.com" class="btn" id="contact-button">이메일 문의</a>
   </section>
 
   <footer>
     <p>&copy; 2025 재활 운동 강의 센터. All rights reserved.</p>
   </footer>
+
+  <script>
+    function setLang(lang) {
+      const dict = {
+        ko: {
+          title: "재활 · 운동 강의 센터",
+          subtitle: "건강을 되찾는 첫걸음, 집에서 시작하세요",
+          aboutTitle: "우리에 대해",
+          aboutText: "물리치료 전문가들이 직접 제작한 온라인 재활 프로그램입니다.<br>각 과정은 단계별로 구성되어 누구나 쉽게 따라할 수 있어요.",
+          productTitle: "전문 재활 운동 키트",
+          productText: "집에서도 효과적인 재활 운동을 할 수 있도록 설계된 키트입니다.<br>다양한 근육군을 자극할 수 있으며, 영상 강의와 연동되어 활용됩니다.",
+          tooltip1: "이 밴드는 다리 근육 회복에 효과적입니다.",
+          tooltip2: "팔과 어깨 재활에 적합한 튜빙 기구입니다.",
+          caption1: "재활 밴드 키트",
+          caption2: "상체 근력 튜브",
+          videoTitle: "대표 강의 미리보기",
+          contactTitle: "문의하기",
+          contactText: "카카오톡: @rehabfit | 이메일: rehab@exercise.com",
+          contactButton: "이메일 문의"
+        },
+        en: {
+          title: "Rehab & Exercise Training Center",
+          subtitle: "Start your recovery journey from home",
+          aboutTitle: "About Us",
+          aboutText: "Our online rehabilitation programs are created by professional physical therapists.<br>Each course is structured step-by-step for everyone to follow.",
+          productTitle: "Professional Rehab Exercise Kit",
+          productText: "Designed for effective rehabilitation training at home.<br>Stimulates various muscle groups and works with video lessons.",
+          tooltip1: "This band helps recover lower body strength.",
+          tooltip2: "This tubing tool is for arm and shoulder rehab.",
+          caption1: "Rehab Band Kit",
+          caption2: "Upper Body Resistance Tube",
+          videoTitle: "Featured Video Previews",
+          contactTitle: "Contact",
+          contactText: "KakaoTalk: @rehabfit | Email: rehab@exercise.com",
+          contactButton: "Email Inquiry"
+        }
+      };
+
+      const t = dict[lang];
+      document.getElementById("title").innerHTML = t.title;
+      document.getElementById("subtitle").innerHTML = t.subtitle;
+      document.getElementById("about-title").innerHTML = t.aboutTitle;
+      document.getElementById("about-text").innerHTML = t.aboutText;
+      document.getElementById("product-title").innerHTML = t.productTitle;
+      document.getElementById("product-text").innerHTML = t.productText;
+      document.getElementById("tooltip1").innerHTML = t.tooltip1;
+      document.getElementById("tooltip2").innerHTML = t.tooltip2;
+      document.getElementById("caption1").innerHTML = t.caption1;
+      document.getElementById("caption2").innerHTML = t.caption2;
+      document.getElementById("video-title").innerHTML = t.videoTitle;
+      document.getElementById("contact-title").innerHTML = t.contactTitle;
+      document.getElementById("contact-text").innerHTML = t.contactText;
+      document.getElementById("contact-button").innerHTML = t.contactButton;
+    }
+  </script>
 </body>
 </html>
