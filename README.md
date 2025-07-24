@@ -165,8 +165,42 @@
   <section id="videos">
     <h2>대표 강의 미리보기</h2>
     <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID1"></iframe>
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID2"></iframe>
+      <iframe 
+  src="https://www.youtube.com/embed/23B_a_TjcOs" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen
+></iframe>
+     <iframe 
+  src="https://www.youtube.com/embed/iZULzSjIItw" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen
+></iframe>
+<iframe 
+  src="https://youtube.com/embed/XPnDr8xCRF8" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen
+></iframe>
+<iframe 
+  src="https://youtube.com/embed/EMvSBOhxXwE" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen
+></iframe>
+<iframe 
+  src="https://youtube.com/embed/p5duolb0-Ic" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen
+></iframe><iframe 
+  src="https://youtube.com/embed/jB_h42_s5HM" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen
+></iframe>
+
     </div>
   </section>
 
@@ -174,12 +208,12 @@
     <h2>전문 재활 운동 키트</h2>
     <div class="product-grid">
       <div class="product-item" onclick="showPopup('kit1')">
-        <img src="https://m.media-amazon.com/images/I/71lOmmWJ+7L._AC_SY300_SX300_.jpg" alt="밴드 키트">
-        <h4>재활 밴드 키트</h4>
+        <img src="https://m.media-amazon.com/images/I/71lOmmWJ+7L._AC_SY300_SX300_.jpg" alt="Nasal Strips">
+        <h4>Nasal Strips</h4>
       </div>
       <div class="product-item" onclick="showPopup('kit2')">
-        <img src="https://picsum.photos/300/200?random=2" alt="튜브 키트">
-        <h4>상체 근력 튜브</h4>
+        <img src="https://m.media-amazon.com/images/I/61fAAU0aZlL._AC_SL1200_.jpg" alt="Nasal Strips">
+        <h4>Nasal Strips</h4>
       </div>
     </div>
   </section>
