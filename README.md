@@ -2,311 +2,252 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>온라인 재활 운동 강의</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RehabFit 2025 - 온라인 재활 운동 플랫폼</title>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #f9f9f9;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
       color: #333;
-      line-height: 1.6;
     }
 
     header {
-      background: #0077cc;
-      color: white;
-      padding: 2rem 1rem;
+      background: url('https://picsum.photos/id/1011/1600/400') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      color: white;
+      flex-direction: column;
     }
 
     header h1 {
-      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      margin: 0;
     }
 
-    .lang-toggle {
+    header p {
+      font-size: 1.2rem;
       margin-top: 1rem;
     }
 
+    .cta-button {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
     section {
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem;
       max-width: 1000px;
       margin: auto;
     }
 
-    .about, .product {
-      background: white;
-      border-radius: 10px;
-      margin-top: 1rem;
-    }
-
-    .product-description {
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .product-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding: 1rem;
-    }
-
-    .product-item {
-      position: relative;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .product-item img {
-      width: 100%;
-      max-width: 1000px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .product-item img:hover {
-      transform: scale(1.02);
-    }
-
-    .tooltip {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: rgba(0,0,0,0.75);
-      color: white;
-      padding: 0.5rem;
-      border-radius: 5px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-      z-index: 10;
-      font-size: 0.9rem;
-    }
-
-    .product-item:hover .tooltip {
-      opacity: 1;
-    }
-
-    .image-caption {
-      margin-top: 0.5rem;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    .buy-btn {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      background: #28a745;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .videos iframe {
-      width: 100%;
-      height: 200px;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    }
-
-    .video-container {
+    .video-grid {
       display: grid;
       gap: 1rem;
     }
 
     @media(min-width: 600px) {
-      .video-container {
+      .video-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
 
-    .contact {
-      background: #e0f0ff;
+    iframe {
+      width: 100%;
+      height: 250px;
       border-radius: 10px;
-      text-align: center;
+      border: none;
     }
 
-    .contact .btn {
-      display: inline-block;
+    .product-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .product-item {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .product-item img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product-item h4 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+    }
+
+    .popup-content img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .popup-content .close {
+      position: absolute;
+      top: 10px; right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .paypal-button-container {
       margin-top: 1rem;
-      padding: 0.8rem 1.5rem;
+    }
+
+    .floating-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       background: #0077cc;
       color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
       text-decoration: none;
-      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+      padding: 2rem 1rem;
       background: #eee;
-    }
-
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-
-    .lightbox:target {
-      display: flex;
-    }
-
-    .lang-toggle button {
-      padding: 5px 15px;
-      margin: 5px;
-      border: none;
-      background: #fff;
-      color: #0077cc;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .lang-toggle button:hover {
-      background: #dcefff;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1 id="title">재활 · 운동 강의 센터</h1>
-    <p id="subtitle">건강을 되찾는 첫걸음, 집에서 시작하세요</p>
-    <div class="lang-toggle">
-      <button onclick="setLang('ko')">한국어</button>
-      <button onclick="setLang('en')">English</button>
-    </div>
+    <h1>RehabFit 2025</h1>
+    <p>AI 기반 재활 운동 · 전문가 영상 강의 · 집에서 시작하는 건강 회복</p>
+    <a href="#videos" class="cta-button">무료 강의 보기</a>
   </header>
 
-  <section class="about">
-    <h2 id="about-title">우리에 대해</h2>
-    <p id="about-text">
-      물리치료 전문가들이 직접 제작한 온라인 재활 프로그램입니다.<br>
-      각 과정은 단계별로 구성되어 누구나 쉽게 따라할 수 있어요.
-    </p>
+  <section id="videos">
+    <h2>대표 강의 미리보기</h2>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID1"></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID2"></iframe>
+    </div>
   </section>
 
-  <section class="product">
-    <div class="product-description">
-      <h2 id="product-title">전문 재활 운동 키트</h2>
-      <p id="product-text">
-        집에서도 효과적인 재활 운동을 할 수 있도록 설계된 키트입니다.<br>
-        다양한 근육군을 자극할 수 있으며, 영상 강의와 연동되어 활용됩니다.
-      </p>
-    </div>
-    <div class="product-images">
-      <div class="product-item">
-        <div class="tooltip" id="tooltip1">이 밴드는 다리 근육 회복에 효과적입니다.</div>
-        <a href="#img1"><img src="https://picsum.photos/1000/600?random=1" alt="제품 사진 1"></a>
-        <div class="image-caption" id="caption1">재활 밴드 키트</div>
-        <a href="#" class="buy-btn">구매하기</a>
+  <section class="products">
+    <h2>전문 재활 운동 키트</h2>
+    <div class="product-grid">
+      <div class="product-item" onclick="showPopup('kit1')">
+        <img src="https://m.media-amazon.com/images/I/71lOmmWJ+7L._AC_SY300_SX300_.jpg" alt="밴드 키트">
+        <h4>재활 밴드 키트</h4>
       </div>
-      <div class="product-item">
-        <div class="tooltip" id="tooltip2">팔과 어깨 재활에 적합한 튜빙 기구입니다.</div>
-        <a href="#img2"><img src="https://picsum.photos/1000/600?random=2" alt="제품 사진 2"></a>
-        <div class="image-caption" id="caption2">상체 근력 튜브</div>
-        <a href="#" class="buy-btn">구매하기</a>
+      <div class="product-item" onclick="showPopup('kit2')">
+        <img src="https://picsum.photos/300/200?random=2" alt="튜브 키트">
+        <h4>상체 근력 튜브</h4>
       </div>
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div id="img1" class="lightbox" onclick="location.href='#'">
-    <img src="https://picsum.photos/1000/600?random=1" alt="확대 이미지 1">
-  </div>
-  <div id="img2" class="lightbox" onclick="location.href='#'">
-    <img src="https://picsum.photos/1000/600?random=2" alt="확대 이미지 2">
-  </div>
-
-  <section class="videos">
-    <h2 id="video-title">대표 강의 미리보기</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
+  <div id="kit1" class="popup" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <img src="https://picsum.photos/500/300?random=1" alt="밴드 키트">
+      <p>다리 근육 회복에 효과적인 밴드 키트입니다.</p>
+      <div id="paypal-button-kit1" class="paypal-button-container"></div>
     </div>
-  </section>
+  </div>
 
-  <section class="contact">
-    <h2 id="contact-title">문의하기</h2>
-    <p id="contact-text">카카오톡: @rehabfit | 이메일: rehab@exercise.com</p>
-    <a href="mailto:rehab@exercise.com" class="btn" id="contact-button">이메일 문의</a>
-  </section>
+  <div id="kit2" class="popup" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <img src="https://picsum.photos/500/300?random=2" alt="튜브 키트">
+      <p>어깨와 팔 근육 재활에 적합한 튜브 기구입니다.</p>
+      <div id="paypal-button-kit2" class="paypal-button-container"></div>
+    </div>
+  </div>
+
+  <a href="https://pf.kakao.com/_YOURID" class="floating-chat">💬 상담하기</a>
 
   <footer>
-    <p>&copy; 2025 재활 운동 강의 센터. All rights reserved.</p>
+    &copy; 2025 RehabFit 재활 운동 플랫폼. All rights reserved.
   </footer>
 
   <script>
-    function setLang(lang) {
-      const dict = {
-        ko: {
-          title: "재활 · 운동 강의 센터",
-          subtitle: "건강을 되찾는 첫걸음, 집에서 시작하세요",
-          aboutTitle: "우리에 대해",
-          aboutText: "물리치료 전문가들이 직접 제작한 온라인 재활 프로그램입니다.<br>각 과정은 단계별로 구성되어 누구나 쉽게 따라할 수 있어요.",
-          productTitle: "전문 재활 운동 키트",
-          productText: "집에서도 효과적인 재활 운동을 할 수 있도록 설계된 키트입니다.<br>다양한 근육군을 자극할 수 있으며, 영상 강의와 연동되어 활용됩니다.",
-          tooltip1: "이 밴드는 다리 근육 회복에 효과적입니다.",
-          tooltip2: "팔과 어깨 재활에 적합한 튜빙 기구입니다.",
-          caption1: "재활 밴드 키트",
-          caption2: "상체 근력 튜브",
-          videoTitle: "대표 강의 미리보기",
-          contactTitle: "문의하기",
-          contactText: "카카오톡: @rehabfit | 이메일: rehab@exercise.com",
-          contactButton: "이메일 문의"
-        },
-        en: {
-          title: "Rehab & Exercise Training Center",
-          subtitle: "Start your recovery journey from home",
-          aboutTitle: "About Us",
-          aboutText: "Our online rehabilitation programs are created by professional physical therapists.<br>Each course is structured step-by-step for everyone to follow.",
-          productTitle: "Professional Rehab Exercise Kit",
-          productText: "Designed for effective rehabilitation training at home.<br>Stimulates various muscle groups and works with video lessons.",
-          tooltip1: "This band helps recover lower body strength.",
-          tooltip2: "This tubing tool is for arm and shoulder rehab.",
-          caption1: "Rehab Band Kit",
-          caption2: "Upper Body Resistance Tube",
-          videoTitle: "Featured Video Previews",
-          contactTitle: "Contact",
-          contactText: "KakaoTalk: @rehabfit | Email: rehab@exercise.com",
-          contactButton: "Email Inquiry"
-        }
-      };
-
-      const t = dict[lang];
-      document.getElementById("title").innerHTML = t.title;
-      document.getElementById("subtitle").innerHTML = t.subtitle;
-      document.getElementById("about-title").innerHTML = t.aboutTitle;
-      document.getElementById("about-text").innerHTML = t.aboutText;
-      document.getElementById("product-title").innerHTML = t.productTitle;
-      document.getElementById("product-text").innerHTML = t.productText;
-      document.getElementById("tooltip1").innerHTML = t.tooltip1;
-      document.getElementById("tooltip2").innerHTML = t.tooltip2;
-      document.getElementById("caption1").innerHTML = t.caption1;
-      document.getElementById("caption2").innerHTML = t.caption2;
-      document.getElementById("video-title").innerHTML = t.videoTitle;
-      document.getElementById("contact-title").innerHTML = t.contactTitle;
-      document.getElementById("contact-text").innerHTML = t.contactText;
-      document.getElementById("contact-button").innerHTML = t.contactButton;
+    function showPopup(id) {
+      document.getElementById(id).style.display = 'flex';
     }
+
+    function closePopup() {
+      document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+    }
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "재활 밴드 키트",
+            amount: { value: '29.99' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('결제가 완료되었습니다. 감사합니다, ' + details.payer.name.given_name + '님!');
+        });
+      }
+    }).render('#paypal-button-kit1');
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "상체 근력 튜브",
+            amount: { value: '39.99' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('결제가 완료되었습니다. 감사합니다, ' + details.payer.name.given_name + '님!');
+        });
+      }
+    }).render('#paypal-button-kit2');
   </script>
 </body>
 </html>
