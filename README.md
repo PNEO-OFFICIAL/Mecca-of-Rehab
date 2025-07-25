@@ -15,7 +15,6 @@
     }
 
     header {
-      background: url('https://picsum.photos/id/1011/1600/400') center/cover no-repeat;
       height: 60vh;
       display: flex;
       align-items: center;
@@ -23,16 +22,21 @@
       text-align: center;
       color: white;
       flex-direction: column;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
     }
 
     header h1 {
       font-size: 3rem;
       margin: 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
 
     header p {
       font-size: 1.2rem;
       margin-top: 1rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
 
     .cta-button {
@@ -156,7 +160,7 @@
   </style>
 </head>
 <body>
-  <header>
+  <header id="header">
     <h1>RehabFit 2025</h1>
     <p>AI 기반 재활 운동 · 전문가 영상 강의 · 집에서 시작하는 건강 회복</p>
     <a href="#videos" class="cta-button">무료 강의 보기</a>
@@ -165,43 +169,22 @@
   <section id="videos">
     <h2>대표 강의 미리보기</h2>
     <div class="video-grid">
-      <iframe 
-  src="https://www.youtube.com/embed/23B_a_TjcOs" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen
-></iframe>
-     <iframe 
-  src="https://www.youtube.com/embed/iZULzSjIItw" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen
-></iframe>
-<iframe 
-  src="https://youtube.com/embed/XPnDr8xCRF8" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen
-></iframe>
-<iframe 
-  src="https://youtube.com/embed/EMvSBOhxXwE" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen
-></iframe>
-<iframe 
-  src="https://youtube.com/embed/p5duolb0-Ic" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen
-></iframe><iframe 
-  src="https://youtube.com/embed/jB_h42_s5HM" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen
-></iframe>
-
+      <iframe src="https://www.youtube.com/embed/23B_a_TjcOs" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/iZULzSjIItw" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/XPnDr8xCRF8" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/EMvSBOhxXwE" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/p5duolb0-Ic" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/jB_h42_s5HM" allowfullscreen></iframe>
     </div>
+  </section>
+
+  <section id="company">
+    <h2>RehabFit 소개</h2>
+    <p style="text-align: center; max-width: 800px; margin: auto; line-height: 1.6;">
+      RehabFit는 AI 기술을 접목한 온라인 재활 운동 플랫폼입니다.<br>
+      집에서도 전문가의 운동 지도를 받을 수 있도록 고품질 영상 강의와 재활 키트를 제공합니다.<br>
+      근골격계 회복, 만성 통증 완화, 자세 교정 등 다양한 목적에 맞춘 솔루션을 통해 건강한 삶을 지원합니다.
+    </p>
   </section>
 
   <section class="products">
@@ -215,13 +198,17 @@
         <img src="https://m.media-amazon.com/images/I/61fAAU0aZlL._AC_SL1200_.jpg" alt="Nasal Strips">
         <h4>Nasal Strips</h4>
       </div>
+      <div class="product-item" onclick="showPopup('kit3')">
+        <img src="https://m.media-amazon.com/images/I/61NOb3anKHL._AC_SL1200_.jpg" alt="Nasal Strips">
+        <h4>Nasal Strips</h4>
+      </div>
     </div>
   </section>
 
   <div id="kit1" class="popup" onclick="closePopup()">
     <div class="popup-content" onclick="event.stopPropagation()">
       <span class="close" onclick="closePopup()">&times;</span>
-      <img src="https://picsum.photos/500/300?random=1" alt="밴드 키트">
+      <img src="https://m.media-amazon.com/images/I/71lOmmWJ+7L._AC_SY300_SX300_.jpg" alt="밴드 키트">
       <p>다리 근육 회복에 효과적인 밴드 키트입니다.</p>
       <div id="paypal-button-kit1" class="paypal-button-container"></div>
     </div>
@@ -230,9 +217,18 @@
   <div id="kit2" class="popup" onclick="closePopup()">
     <div class="popup-content" onclick="event.stopPropagation()">
       <span class="close" onclick="closePopup()">&times;</span>
-      <img src="https://picsum.photos/500/300?random=2" alt="튜브 키트">
+      <img src="https://m.media-amazon.com/images/I/61fAAU0aZlL._AC_SL1200_.jpg" alt="튜브 키트">
       <p>어깨와 팔 근육 재활에 적합한 튜브 기구입니다.</p>
       <div id="paypal-button-kit2" class="paypal-button-container"></div>
+    </div>
+  </div>
+
+  <div id="kit3" class="popup" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <img src="https://m.media-amazon.com/images/I/61NOb3anKHL._AC_SL1200_.jpg" alt="Nasal Strips">
+      <p>전신 회복에 도움을 주는 호흡 보조 키트입니다.</p>
+      <div id="paypal-button-kit3" class="paypal-button-container"></div>
     </div>
   </div>
 
@@ -243,6 +239,20 @@
   </footer>
 
   <script>
+    const header = document.getElementById('header');
+    const images = [
+      'https://picsum.photos/id/1011/1600/400',
+      'https://picsum.photos/id/1015/1600/400',
+      'https://picsum.photos/id/1025/1600/400'
+    ];
+    let currentIndex = 0;
+    function changeHeaderBackground() {
+      header.style.backgroundImage = `url('${images[currentIndex]}')`;
+      currentIndex = (currentIndex + 1) % images.length;
+    }
+    changeHeaderBackground();
+    setInterval(changeHeaderBackground, 3000);
+
     function showPopup(id) {
       document.getElementById(id).style.display = 'flex';
     }
@@ -282,6 +292,22 @@
         });
       }
     }).render('#paypal-button-kit2');
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "호흡 보조 키트",
+            amount: { value: '19.99' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('결제가 완료되었습니다. 감사합니다, ' + details.payer.name.given_name + '님!');
+        });
+      }
+    }).render('#paypal-button-kit3');
   </script>
 </body>
 </html>
