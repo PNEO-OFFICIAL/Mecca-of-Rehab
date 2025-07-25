@@ -75,12 +75,12 @@
       border: none;
     }
 
-    .product-grid {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
 
     .product-item {
       background: white;
@@ -162,28 +162,41 @@
 <body>
   <header id="header">
     <h1>RehabFit 2025</h1>
-    <p>AI 기반 재활 운동 · 전문가 영상 강의 · 집에서 시작하는 건강 회복</p>
+    <p> 재활 운동 · 전문가 영상 강의 · 집에서 시작하는 건강 회복</p>
     <a href="#videos" class="cta-button">무료 강의 보기</a>
   </header>
 
   <section id="videos">
-    <h2>대표 강의 미리보기</h2>
+    <h2>재활 대표 강의 미리보기</h2>
     <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/23B_a_TjcOs" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/iZULzSjIItw" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/XPnDr8xCRF8" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/EMvSBOhxXwE" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/p5duolb0-Ic" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/jB_h42_s5HM" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/23B_a_TjcOs" frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/iZULzSjIItw" frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/XPnDr8xCRF8"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/EMvSBOhxXwE"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/p5duolb0-Ic"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/jB_h42_s5HM"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
     </div>
   </section>
 
   <section id="company">
     <h2>RehabFit 소개</h2>
-    <p style="text-align: center; max-width: 800px; margin: auto; line-height: 1.6;">
+    <p style="text-align: center; max-width: 1000px; margin: auto; line-height: 2.0;">
       RehabFit는 AI 기술을 접목한 온라인 재활 운동 플랫폼입니다.<br>
       집에서도 전문가의 운동 지도를 받을 수 있도록 고품질 영상 강의와 재활 키트를 제공합니다.<br>
-      근골격계 회복, 만성 통증 완화, 자세 교정 등 다양한 목적에 맞춘 솔루션을 통해 건강한 삶을 지원합니다.
+      근골격계 회복, 만성 통증 완화, 자세 교정 등 다양한 목적에 맞춘 솔루션을 통해 건강한 삶을 지원합니다.<br>
+      다양한 제품들과 강의 소개로, 재활의 모든것에 대해 알려드립니다.
     </p>
   </section>
 
@@ -232,7 +245,7 @@
     </div>
   </div>
 
-  <a href="https://pf.kakao.com/_YOURID" class="floating-chat">💬 상담하기</a>
+  <a href="https://pf.kakao.com/_Jujubae1" class="floating-chat">💬 상담하기</a>
 
   <footer>
     &copy; 2025 RehabFit 재활 운동 플랫폼. All rights reserved.
@@ -251,7 +264,7 @@
       currentIndex = (currentIndex + 1) % images.length;
     }
     changeHeaderBackground();
-    setInterval(changeHeaderBackground, 3000);
+    setInterval(changeHeaderBackground, 2500);
 
     function showPopup(id) {
       document.getElementById(id).style.display = 'flex';
