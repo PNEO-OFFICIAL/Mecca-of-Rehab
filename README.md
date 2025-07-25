@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RehabFit 2025 - 온라인 재활 운동 플랫폼</title>
+  <title>RehabFit 2025 - 재활 운동의 메카 <br>
+  Mecca of Rehabilitation</title>
   <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
   <style>
     * { box-sizing: border-box; }
@@ -245,7 +247,23 @@ allowfullscreen></iframe>
   </div>
 
   <a href="https://pf.kakao.com/_Jujubae1" class="floating-chat">💬 상담하기</a>
+<section id="product-description">
+  <h2>비강 확장기의 효과</h2>
+  <p style="max-width: 800px; margin: auto; line-height: 1.6; text-align: center;">
+    비강 확장기는 코 안쪽 또는 바깥쪽에 장착하여 공기의 흐름을 원활하게 해주는 보조 기기입니다.<br><br>
 
+     <strong>실용적 효과</strong>:  <br>
+    - 수면 중 코막힘 개선 → 코골이 완화  <br>
+    - 운동 중 호흡 효율 증가 → 지구력 향상  <br>
+    - 알레르기, 비염 등으로 인한 호흡 곤란 감소  <br><br>
+
+     <strong>미용적 효과</strong>:  <br>
+    - 비강이 확장되면 코의 형태가 더 곧고 정돈되어 보이게 함  <br>
+    - 장시간 사용 시 얼굴 중심의 밸런스를 개선하는 데 도움  <br>
+    - 마스크 속에서도 코 라인이 살아나는 효과  <br><br>
+
+    사용이 간편하고 피부 자극이 적은 소재로 제작되어 일상 생활에서도 부담 없이 사용할 수 있습니다.<br>
+  </p>
   <footer>
     &copy; 2025 RehabFit 재활 운동 플랫폼. All rights reserved.
   </footer>
@@ -321,5 +339,8 @@ allowfullscreen></iframe>
       }
     }).render('#paypal-button-kit3');
   </script>
+
+</section>
+
 </body>
 </html>
