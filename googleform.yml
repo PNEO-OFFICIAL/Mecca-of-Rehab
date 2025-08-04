@@ -1,0 +1,15 @@
+name: Submit to Google Form
+
+on:
+  workflow_dispatch:  # GitHub Actions에서 수동 실행 가능
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit to Google Form
+        run: |
+          curl -X POST https://docs.google.com/forms/d/e/1FAIpQLSdhRZtFgLU3qZYOgrWf9wv1cG4F1Z2Hj1ZMjW4Y8YcPbXXX/formResponse \
+            -d "entry.1465051849=${{ github.actor }}" \
+            -d "entry.116811121=This is a test from GitHub Actions." \
+            -d "entry.261996608=https://github.com/${{ github.repository }}"
